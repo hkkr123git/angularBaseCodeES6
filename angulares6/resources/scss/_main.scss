@@ -1,0 +1,269 @@
+/*instructions*/
+/*
+* group css according to components.
+* z-index of loading element is 100.
+* keep the z-indices of noraml elements less than 10 if possibble.
+*/
+
+@import "variables.scss";
+@import "compass/css3/font-face";
+
+//site-wide rules
+html{
+    /*font-size: $font_size_base;*/
+    vertical-align: baseline;
+    font-weight: normal;
+    height: 100%;
+}
+body{
+    background: $bg-color;
+    font-weight: normal;
+    font-size: $font-size-normal;
+    line-height: $font-line-height;
+    font-family: $font-primary;
+    color: $primary-text-color;
+    min-height: 100%;
+}
+
+/*====================================================*/
+/*====================================================*/
+/*forms*/
+input{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    color: $primary-text-color; 
+}
+
+input[type="text"]{
+    &.no-border{
+        border: 0;
+        line-height: $font-line-height;
+        height: $font-line-height;
+    }
+}
+
+.form-login{
+    margin: auto 0;
+    width: 30%;
+    .submit{
+        max-width: 45%;
+        margin: $font-line-height auto 0;
+    }
+}
+.login-username-field, .login-password-field{
+    height: ($font-line-height * 2);
+    border: 1px solid  #eee;
+    border-radius: $font-line-height;
+    position: relative;
+    margin-bottom: ($font-line-height / 2);
+    overflow: hidden;
+    label{
+        width: 3.4rem;
+        height: 3.4rem;
+        top: 0;left: .2rem;
+        position: absolute; 
+        color: $primary-text-color;
+        white-space: nowrap;
+        text-indent: 100%;
+        overflow: hidden;
+    }
+    input{
+        width: 100%;
+        display: block;
+        border: 0;
+        background: #fff;
+        padding: 0 1.5rem 0 4rem;
+        height: (($font-line-height * 2) - .2rem);
+        line-height: (($font-line-height * 2) - .2rem);
+        
+        &:focus{
+            background: #fff;
+        }
+    }
+}
+.login-wrapper{
+    height: 100%;
+    color: $text-color-gray;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+}
+.login-content{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+.loginform-wrapper{
+    background: #fff;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+%button{
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    height: (2 * $font-line-height);
+    line-height: (2 * $font-line-height);
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;transition: .3s;
+    position: relative;
+    &:hover, &:focus{
+        /*background-color: #333;*/
+        color: #fff;
+    }
+    &:active{
+        /*background-color: #000;*/
+    }
+    .icon{
+        display: inline-block;
+    }
+}
+.btn-curved{
+    @extend %button;
+    border: 0;
+    padding: 0 2rem;
+    border-radius: (2 * $font-line-height);
+    width: 100%;
+    max-width: 20rem;
+}
+.btn-color-accent{
+    background-color: $accent-color;
+    color: #fff;
+}
+/////////////*START Eldho*///////////
+.page-sub-title{
+    background: #edf0f0;
+    box-shadow: 0px 1px 0px 0px rgba(221, 223, 223, 0.004);
+    h3{
+        color: $primary-color;
+        font-size:1.5rem;
+        font-family: 'robotobold';
+        padding: 1.75rem 0;
+    }
+    .draft{
+        padding: 1.75rem 0rem;
+        float: right;
+        color: $primary-color;
+        font-family: 'robotobold';
+        font-size: 1.12rem;
+        text-decoration: none;
+        .ic-draft{
+            background: url("../images/icons/ic_savedraft.png") no-repeat;
+            width: 1.6rem;
+            height: 1.6rem;
+            float:left;
+            margin: 0 0.625rem 0 0;
+        }
+    }
+}
+.ticket-list{
+    background: #fff;
+    border: 1px solid #ddd;
+    h6{
+        color: $primary-color;
+        font-size: 0.875rem;
+        font-family: 'robotomedium';
+        padding: 1.778rem 0 0.556rem 2.333rem;
+    }
+    .ticket-item-detail {
+        border-left: 1px solid #ddd;
+        padding-top: 0.7rem;
+    }
+    md-list-item.ticket-item {
+        background: #fff;
+        color: $primary-text-color;
+        font-size: 1.000rem;
+        padding: 0 0.6rem 0 2.333rem;
+        font-family: 'robotobold';
+        cursor: pointer;
+        &:hover,&:focus{
+            background: #eee;
+        }
+    }
+    md-list-item.ticket-item.active {
+        background: $primary-color;
+        color: #fff;
+    }
+    md-input-container {
+        width: 100%;
+        margin: 25px 0 0 0;
+        label {
+            color: rgba(0, 0, 0, .4);
+            font-size: 0.875rem;
+            font-family: 'robotomedium';
+        }
+        .md-errors-spacer {
+            min-height: 0;
+        }
+    }
+    .switch {
+        float: right;
+        md-switch {
+            margin: 25px 0 0px 0;
+            .md-label{
+                position:relative;
+                top: 0;
+                right: 0;
+                left: 0.278em;
+                text-align: center;
+                span{
+                    margin-right:0;
+                    font-size: 1rem;
+                    font-family: 'robotobold';
+                    text-transform: uppercase;
+                    color: #6f6f6f;
+                    float: none;
+                }
+            }
+        }
+    }
+    md-checkbox {
+        margin-top: 2.0rem;
+        float: left;
+        position: absolute;
+        .md-label span{
+            color: rgba(0,0,0,0.7);
+            margin-left: 0.625rem;
+            font-size: 0.875rem; 
+            font-family: 'robotomedium';
+        }
+    }
+}
+.card-margin {
+    margin: 2.625rem 4.375rem 2.000rem 6.875rem;
+}
+.no-pad {
+    padding: 0 !important;
+}
+
+
+.ic-close {
+    text-align: center;
+    span {
+        border: 1px solid #fff;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 12px;
+        padding: 0px 6px 2px 5px;
+        color: #fff;
+        font-family: robotoregular;
+        }
+}
+/////////////*END Eldho*///////////
+/////////////*my code shafik*///////////

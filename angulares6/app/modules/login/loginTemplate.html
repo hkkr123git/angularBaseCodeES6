@@ -1,0 +1,49 @@
+<div class="login-wrapper" layout="row">
+    <div layout="column" flex id="content" role="main" class="height-min">
+        <md-content  flex id="content">
+            <div layout="column" flex="100" class="height-max">
+                <div class="container-top md-whiteframe-z1">
+                    <div class="title">Sweets N' Salt</div>
+                    <div class="sub-title">DASHBOARD</div>
+                </div>
+            </div>
+            <div layout="row" layout-align="center center" class="form-container">
+                <md-whiteframe class="md-whiteframe-z2" layout="column" flex="35" layout-padding>
+                    <md-content md-theme="appTheme">
+                        <div class="text-center">
+                            <img class="md-whiteframe-z1" src="resources/images/icons/ic_logo.png"/>
+                        </div>
+                        <form name="loginForm" ng-submit="loginVM.onLoginSubmit()">
+                            <md-input-container layout="column">
+                                <label>Username</label>
+                                <input name="username" md-no-asterisk ng-model="loginVM.username" required>
+                                <div ng-messages="loginForm.username.$error" md-auto-hide="false">
+                                  <div ng-message="required">This is required!</div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container layout="column">
+                                <label>Password</label>
+                                <input name="password" ng-model="loginVM.password" type="password" md-no-asterisk required>
+                                <div ng-messages="loginForm.password.$error" md-auto-hide="false">
+                                  <div ng-message="required">This is required!</div>
+                                </div>
+                            </md-input-container>
+                            <div class="rem-pad">
+                                <md-checkbox class="col-md-6 col-xs-6" aria-label="Remember Me">
+                                   Remember Me
+                                </md-checkbox>
+                                <div class="col-md-3 col-xs-6 forgot-pass">
+                                    <a md-ink-ripple>Forgot Password?</a>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-12">
+                                <md-button class="md-raised md-primary" type="submit">Login</md-button>
+                            </div>
+                        </form>
+                    </md-content>
+                </md-whiteframe>
+            </div>
+        </md-content>
+    </div>
+</div>
